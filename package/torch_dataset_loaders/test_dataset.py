@@ -1,8 +1,7 @@
 import os
-import random
 
 from PIL import Image
-from ..dataset_loader.image_dataset import ImageDataset
+from .image_dataset import ImageDataset
 
 
 class RealTestDataset(ImageDataset):

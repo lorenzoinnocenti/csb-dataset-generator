@@ -7,7 +7,12 @@ from package.psf_generation.center_kernel import center_kernel
 
 
 class ConstantTrajectory:
-
+    """
+    Class used to generate blurred images, by convolution with kernel generated with the csb_psf class, and with further
+    application of gaussian and poisson noise. The class is initialized with a trajectory and the noise levels. Each
+    time an image is passed to the process_image function, a new exposure value is extracted, and the image is degraded
+    accordingly.
+    """
     def process_image(self, image):
         # gets as input image, in the format of an ndarray
         exposure = random.choice(self.exposures)

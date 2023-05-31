@@ -1,6 +1,12 @@
 import numpy as np
 
 class CSBPSF:
+    """
+    Class that handles the sampling of the trajectory in a 2d kernel.
+    It takes as input for the constructor the complex valued ndarray that represent the trajectory and the size of the
+    kernels to be generated. When the generate function is called, the trajectory is sampled proportionally to the
+    exposure value, and output as a 2d real valued ndarray.
+    """
     def __init__(self, trajectory: np.ndarray, psf_size=64):
         self.trajectory = trajectory
         self.psf_size = np.array([psf_size, psf_size])

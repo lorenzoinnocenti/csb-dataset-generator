@@ -6,6 +6,10 @@ from .single_path_image_dataset import SinglePathImageDataset
 
 
 class ConstantKernelDataset(SinglePathImageDataset):
+    """
+    Class that handles the data loading of images degraded by convolution with a kernel which is the same for every
+    image. The kernel is defined during initialization.
+    """
 
     def __init__(self, DATASET_PATH, psf_kernel, image_size, crop='random'):
         super().__init__(DATASET_PATH, image_size, crop)

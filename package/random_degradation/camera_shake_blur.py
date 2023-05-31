@@ -8,7 +8,11 @@ from package.psf_generation.center_kernel import center_kernel
 
 
 class CameraShakeBlur:
-
+    """
+    Class used to generate blurred images, by convolution with kernel generated with the csb_psf class.
+    The class is initialized with the trajectory generation parameters, and each time an image is passed to the
+    process_image function a new kernel is generated and used to degrade the image.
+    """
     def process_image(self, image):
         # gets as input image, in the format of an ndarray,
         self.seed = self.seed + 1

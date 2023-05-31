@@ -3,7 +3,11 @@ from numpy import random
 
 
 class TrajectoryGenerator:
-
+    """
+    Class that handles the generation of the trajectory, represented as a complex valued ndarray.
+    It's initialized with the parameters that control the trajectory generation, then
+    the generate function can be called to output the ndarray.
+    """
     def __init__(self, traj_size=64, anxiety=None, centripetal_term=None, gaussian_term=None, freq_big_shakes=None,
                  num_t=2000, max_total_length=None, seed=None):
         if (seed != None):

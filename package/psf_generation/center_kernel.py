@@ -1,6 +1,9 @@
 import numpy as np
 
 def center_kernel(kernel):
+    """
+    function used to center the sampled trajectory in the kernel canvas
+    """
     height, width = kernel.shape
     x, y, w, h = bounding_box(kernel)
     # Create new blank image and shift ROI to new coordinates

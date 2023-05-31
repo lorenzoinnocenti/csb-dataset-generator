@@ -1,12 +1,12 @@
-from PIL import Image
 import cv2
-from PyConvBlur.psf_generation.motion_psf import *
 import numpy as np
 from numpy import random
-import matplotlib.pyplot as plt
 
 
 def blur_raw(y, psf_list, lambda_poisson=1, sigma_gauss=0, seed=None):
+    """
+    function that implements the full degradation algorithm from the paper by Boracchi and Foi
+    """
     if seed is not None:
         random.seed(seed)
 
@@ -46,17 +46,18 @@ def blur_raw(y, psf_list, lambda_poisson=1, sigma_gauss=0, seed=None):
 
 
 if __name__ == "__main__":
-    from PyConvBlur.psf_generation.trajectory_generator import TrajectoryGenerator
+    from ..psf_generation.csb_psf import CSBPSF
+    from ..psf_generation.trajectory_generator import TrajectoryGenerator
     import matplotlib.pyplot as plt
     from PIL import Image
     psf_size = 128
     num_t = psf_size*1000
     for i in range(0, 10):
         print(i)
-        trajectory = TrajectoryGenerator(traj_size=psf_size, num_t=num_t)
+        trajectory = TrajectoryGenerator(traj_size=psf_size, num_t=num_t).generate()
         # plt.imshow(kernel, cmap='gray')
         # plt.show()
-        psf = PSF(trajectory,
+        psf = CSBPSF(trajectory,
                   psf_size=psf_size)
         kernel = psf.generate()
         plt.imshow(kernel, cmap='gray')

@@ -6,9 +6,12 @@ from package.psf_generation.disk_psf import disk_psf_generation
 
 
 class DiskBlur:
-
+    """
+    Class used to generate blurred images, by convolution with kernel generated with the disk_psf_generation function.
+    The class is initialized with a range of radii. Each time an image is passed to the
+    process_image function, a new kernel is generated within the specified range, and it's used to degrade the image.
+    """
     def process_image(self, image):
-        # gets as input image, in the format of an ndarray
         # radius_size = random.randint(self.min_disk_radius, self.max_disk_radius)
         radius_size = random.uniform(self.min_disk_radius, self.max_disk_radius)
         kernel = disk_psf_generation(self.psf_size, radius_size, precision=10)
