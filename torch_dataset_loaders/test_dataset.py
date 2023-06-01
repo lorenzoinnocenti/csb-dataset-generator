@@ -1,10 +1,9 @@
 import os
-
 from PIL import Image
 from .image_dataset import ImageDataset
 
 
-class RealTestDataset(ImageDataset):
+class TestDataset(ImageDataset):
     # loader for the test set for the imagenet synthetic blur dataset
 
     def __init__(self, sharp_path, blur_path, image_size):

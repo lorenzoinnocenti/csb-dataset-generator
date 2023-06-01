@@ -51,10 +51,9 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from PIL import Image
     psf_size = 128
-    num_t = psf_size*1000
     for i in range(0, 10):
         print(i)
-        trajectory = TrajectoryGenerator(traj_size=psf_size, num_t=num_t).generate()
+        trajectory = TrajectoryGenerator(traj_size=psf_size).generate()
         # plt.imshow(kernel, cmap='gray')
         # plt.show()
         psf = CSBPSF(trajectory,

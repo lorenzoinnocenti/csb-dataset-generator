@@ -4,7 +4,6 @@ from torchvision import transforms
 import torchvision.transforms.functional as TF
 from ..utils.auto_resizer import resize_if_needed
 from PIL import Image, ImageEnhance
-import numpy as np
 
 
 class ImageDataset(torch.utils.data.Dataset):
