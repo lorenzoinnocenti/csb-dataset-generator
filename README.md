@@ -18,15 +18,12 @@ The random degradation classes can be integrated in the training of PyTorch neur
 
 We denote the blurring degradation process as a function of the sharp image $\mathbf{x}$
 
-$
-    \mathbf{y} = \Phi (\mathbf{x}) ,
-$
+$\mathbf{y} = \Phi (\mathbf{x})$,
 
 where $\mathbf{y}$ is the blurred image, and $\Phi$ is the blurring process. Under the assumption of spatially invariant blur, the degradation can be represented as a convolution with a Point Spread Function (PSF) kernel $\mathbf{k}$
 
-$
-    \mathbf{y} = \mathbf{k} \ast \mathbf{x} .
-$
+$\mathbf{y} = \mathbf{k} \ast \mathbf{x}$ .
+
 
 Multiple types of blur exist. 
 
@@ -52,17 +49,13 @@ Here are some examples of disk kernels, generated this package:
 
 In this formulation, additionally to the camera shake blur degradation, we include a noise component, as proposed in  [[1]](#1). To the blurred image is applied Poisson noise, caused by the statistical nature of photon detection, and Gaussian noise, caused by the amplification of the electrical signal:
 
-$
-    \mathbf{y} = (\mathbf{u} + \mathbf{n})/T ,
-$
+$\mathbf{y} = (\mathbf{u} + \mathbf{n})/T$ ,
 
-$
-    \mathbf{u} \sim \mathcal{P}(\lambda(\mathbf{\mathbf{k} \ast \mathbf{x}})) ,
-$    
+$\mathbf{u} \sim \mathcal{P}(\lambda(\mathbf{\mathbf{k} \ast \mathbf{x}}))$ ,
+   
 
-$
-    \mathbf{n} \sim \mathcal{N}(0, \sigma^2) , 
-$
+$\mathbf{n} \sim \mathcal{N}(0, \sigma^2)$ , 
+
 
 where $\sigma$ quantifies the thermal and electrical noise of the system, and $\lambda$ the quantum efficiency of the sensor. The parameter $T$ represents the exposure time, and controls the length of the trajectory of the blurring kernel. It is the same value as the sum of the kernel pixels. The authors use this value to simulate the tradeoff between blur and noise present in cameras: when $T$ is small, the signal range is shrunk, increasing the noise effect, and reducing the blur magnitude. The multiplication by $1/T$ is an amplification factor that serves to restore the full dynamic range of the image. This is the same tradeoff between blur and noise that we can find in cameras.
 
